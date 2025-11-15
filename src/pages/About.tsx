@@ -36,7 +36,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="about-page min-h-screen flex flex-col bg-background text-foreground not-italic">
       <SEOHead 
         title="About SOLARQUENCH - Leading Solar Energy Provider Since 2015"
         description="Learn about SOLARQUENCH's journey in revolutionizing solar energy in South Africa. Founded in 2015, we've completed 2,500+ installations with expert engineers and certified technicians."
@@ -45,7 +45,7 @@ const About = () => {
       />
       <Navbar />
       
-      <main className="flex-1">
+      <main className="flex-1 not-italic">
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden bg-slate-950">
         <img
@@ -56,7 +56,7 @@ const About = () => {
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-        <div className="relative container mx-auto px-4 text-center text-white space-y-6">
+        <div className="relative container mx-auto px-4 sm:px-6 text-center text-white space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             About{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -70,8 +70,8 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 md:py-20 bg-background" data-scroll-section>
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
@@ -97,7 +97,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="relative" data-scroll data-scroll-speed="0.5">
+            <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
               <img 
                 src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760961795/WhatsApp_Image_2025-10-19_at_19.55.52_wluvdj.jpg"
@@ -112,8 +112,8 @@ const About = () => {
       </section>
 
       {/* Values Grid */}
-      <section className="py-16 md:py-20 bg-muted/30" data-scroll-section>
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
             <p className="text-base md:text-xl text-primary-foreground max-w-2xl mx-auto bg-primary px-6 py-3 rounded-lg inline-block">
@@ -126,8 +126,6 @@ const About = () => {
               <Card 
                 key={index}
                 className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg group premium-glow"
-                data-scroll
-                data-scroll-speed={0.3 + (index % 2) * 0.2}
               >
                 <CardContent className="p-8">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
@@ -146,7 +144,7 @@ const About = () => {
 
       {/* Timeline Section */}
       <section className="py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
             <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">

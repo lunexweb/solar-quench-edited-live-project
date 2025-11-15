@@ -177,8 +177,8 @@ const Gallery = () => {
       
       <main className="flex-1 flex flex-col">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
+      <section className="pt-24 md:pt-32 pb-20 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Our{" "}
@@ -197,7 +197,7 @@ const Gallery = () => {
 
       {/* Stats Section */}
       <section className="py-16 bg-gradient-to-r from-secondary via-secondary/95 to-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6">
           <h2 className="sr-only">Performance Metrics</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -215,52 +215,34 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-background" data-scroll-section>
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <h2 className="sr-only">Featured Solar Installations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {projects.map((project, index) => (
-              <Card 
+              <Card
                 key={index}
-                className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl group cursor-pointer overflow-hidden premium-glow"
+                className="overflow-hidden rounded-3xl border border-border/70 bg-white shadow-md transition-shadow hover:shadow-lg"
                 onClick={() => setSelectedImage(project.image)}
-                data-scroll
-                data-scroll-speed={0.3 + (index % 3) * 0.2}
               >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img 
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-full object-cover"
                     loading="lazy"
                     decoding="async"
                   />
-                  
-                  {/* Watermark - Always visible (centered logo) */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="rounded-xl bg-black/0 backdrop-blur-sm p-0 border-0">
-                      <img
-                        src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760962192/WhatsApp_Image_2025-10-17_at_07.25.35_jynxa8.jpg"
-                        alt="Solarquench watermark logo"
-                        className="w-24 h-16 object-cover rounded-lg shadow-lg opacity-40"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    {project.showBadge !== false && (
-                      <div className="inline-block px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium mb-2">
-                        {project.category}
-                      </div>
-                    )}
-                    <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                    <p className="text-sm text-secondary-foreground/90">{project.description}</p>
-                  </div>
                 </div>
+                <CardContent className="p-6 space-y-3 text-left">
+                  {project.showBadge !== false && (
+                    <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                      {project.category}
+                    </div>
+                  )}
+                  <h3 className="text-lg font-semibold text-slate-900">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -269,35 +251,22 @@ const Gallery = () => {
 
       {/* Image Dialog */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] p-0 bg-background border shadow-2xl">
+        <DialogContent className="max-w-3xl max-h-[90vh] border bg-background p-0 shadow-2xl">
           {selectedImage && (
-            <div className="relative">
-              <img 
-                src={selectedImage}
-                alt="Project detail"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                loading="lazy"
-                decoding="async"
-              />
-              
-              {/* Watermark - Always visible in dialog (centered logo) */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <img
-                  src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760962192/WhatsApp_Image_2025-10-17_at_07.25.35_jynxa8.jpg"
-                  alt="Solarquench watermark logo"
-                  className="w-40 h-28 object-cover rounded-xl shadow-2xl opacity-40"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
+            <img
+              src={selectedImage}
+              alt="Project detail"
+              className="h-auto max-h-[80vh] w-full rounded-xl object-contain"
+              loading="lazy"
+              decoding="async"
+            />
           )}
         </DialogContent>
       </Dialog>
 
       {/* CTA Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
               Want to See Your Project Here?

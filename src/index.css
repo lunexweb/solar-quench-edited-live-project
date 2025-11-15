@@ -132,6 +132,8 @@ All colors MUST be HSL.
     min-height: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    font-style: normal;
+    transform: none !important;
   }
 
   #root {
@@ -139,6 +141,7 @@ All colors MUST be HSL.
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transform: none !important;
   }
 
   body {
@@ -153,6 +156,38 @@ All colors MUST be HSL.
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
     overscroll-behavior: none;
+    font-style: normal;
+    transform: none !important;
+    perspective: none;
+    transform-style: flat;
+  }
+
+  body,
+  body * {
+    font-style: normal !important;
+  }
+
+  main,
+  section,
+  article,
+  header,
+  footer,
+  img,
+  picture,
+  figure,
+  .card {
+    transform: none !important;
+  }
+
+  img,
+  picture,
+  figure {
+    display: block;
+  }
+
+  .about-page,
+  .about-page * {
+    font-style: normal !important;
   }
 
   
@@ -168,87 +203,6 @@ All colors MUST be HSL.
     overscroll-behavior: none;
   }
   
-  html.has-scroll-smooth {
-    overflow: hidden;
-  }
-
-  html.has-scroll-dragging {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  .has-scroll-smooth body {
-    overflow: hidden;
-  }
-
-  .has-scroll-smooth [data-scroll-container] {
-    min-height: 100vh;
-  }
-
-  [data-scroll-direction="horizontal"] [data-scroll-container] {
-    height: 100vh;
-    display: inline-block;
-    white-space: nowrap;
-  }
-
-  [data-scroll-direction="horizontal"] [data-scroll-section] {
-    display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
-    height: 100%;
-  }
-
-  .c-scrollbar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 11px;
-    height: 100%;
-    transform-origin: center right;
-    transition: transform 0.3s, opacity 0.3s;
-    opacity: 0;
-  }
-  .c-scrollbar:hover {
-    transform: scaleX(1.45);
-  }
-  .c-scrollbar:hover,
-  .has-scroll-scrolling .c-scrollbar,
-  .has-scroll-dragging .c-scrollbar {
-    opacity: 1;
-  }
-  [data-scroll-direction="horizontal"] .c-scrollbar {
-    width: 100%;
-    height: 10px;
-    top: auto;
-    bottom: 0;
-    transform: scaleY(1);
-  }
-  [data-scroll-direction="horizontal"] .c-scrollbar:hover {
-    transform: scaleY(1.3);
-  }
-
-  .c-scrollbar_thumb {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: hsl(var(--primary));
-    opacity: 0.5;
-    width: 7px;
-    border-radius: 10px;
-    margin: 2px;
-    cursor: -webkit-grab;
-    cursor: grab;
-  }
-  .has-scroll-dragging .c-scrollbar_thumb {
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
-  }
-  [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
-    right: auto;
-    bottom: 0;
-  }
 }
 
 @layer utilities {
@@ -289,39 +243,6 @@ All colors MUST be HSL.
   /* Smooth transform animations */
   .smooth-transform {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  /* Prevent layout shifts during scroll */
-  [data-scroll-section] {
-    will-change: transform;
-  }
-  
-  /* Optimize scroll performance */
-  [data-scroll] {
-    will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-  
-  /* Ultra-smooth scroll optimization */
-  [data-scroll-section] {
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
-  
-  /* Ensure footer is always at the bottom */
-  [data-scroll-container] {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Ensure footer stays at bottom even with smooth scroll */
-  footer[data-scroll-section] {
-    margin-top: auto;
-    position: relative;
-    z-index: 10;
   }
   
   /* Image Protection - Prevent Downloads and Screenshots */
