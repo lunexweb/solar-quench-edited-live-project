@@ -25,8 +25,8 @@ const Navbar = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
-  const iconColor = scrolled ? "text-foreground" : "text-white";
-  const navBackground = scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white/85 backdrop-blur-sm shadow";
+  const iconColor = "text-slate-900";
+  const navBackground = scrolled ? "bg-white shadow-md" : "bg-white shadow";
 
   return (
     <nav
