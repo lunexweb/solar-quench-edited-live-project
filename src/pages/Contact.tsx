@@ -44,7 +44,7 @@ const Contact = () => {
       
       <main className="flex-1">
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden bg-slate-950">
+      <section className="pt-24 md:pt-32 pb-20 relative overflow-hidden bg-slate-950">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
@@ -52,7 +52,7 @@ const Contact = () => {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-        <div className="relative container mx-auto px-4 text-center text-white space-y-6">
+        <div className="relative container mx-auto px-4 sm:px-6 text-center text-white space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Get in{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -66,8 +66,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 md:py-20 bg-background" data-scroll-section>
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Information</h2>
             <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -80,8 +80,6 @@ const Contact = () => {
               <Card 
                 key={index}
                 className="h-full border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg group premium-glow"
-                data-scroll
-                data-scroll-speed={0.3 + (index % 2) * 0.2}
               >
                 <CardContent className="flex h-full flex-col p-6 text-center">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg mx-auto">
@@ -184,8 +182,8 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-muted/30" data-scroll-section>
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Direct Support</h2>
@@ -195,16 +193,26 @@ const Contact = () => {
             </div>
             <Card className="border-border shadow-xl">
               <CardContent className="p-10 space-y-6">
-                <div>
+                <div className="space-y-2">
                   <p className="text-sm uppercase tracking-wide text-muted-foreground">Project enquiries</p>
-                  <a href="mailto:modishane@solarquench.co.za" className="text-2xl font-semibold text-primary hover:text-accent transition-colors">
-                    modishane@solarquench.co.za
+                  <a
+                    href="mailto:modishane@solarquench.co.za"
+                    className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-primary hover:text-accent transition-colors underline-offset-4 hover:underline"
+                    style={{ wordBreak: "keep-all", whiteSpace: "nowrap" }}
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span>modishane@solarquench.co.za</span>
                   </a>
                 </div>
-                <div>
+                <div className="space-y-2">
                   <p className="text-sm uppercase tracking-wide text-muted-foreground">General support</p>
-                  <a href="mailto:info@solarquench.co.za" className="text-2xl font-semibold text-primary hover:text-accent transition-colors">
-                    info@solarquench.co.za
+                  <a
+                    href="mailto:info@solarquench.co.za"
+                    className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-primary hover:text-accent transition-colors underline-offset-4 hover:underline"
+                    style={{ wordBreak: "keep-all", whiteSpace: "nowrap" }}
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span>info@solarquench.co.za</span>
                   </a>
                 </div>
               </CardContent>

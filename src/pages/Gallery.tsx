@@ -225,7 +225,7 @@ const Gallery = () => {
                 className="overflow-hidden rounded-3xl border border-border/70 bg-white shadow-md transition-shadow hover:shadow-lg"
                 onClick={() => setSelectedImage(project.image)}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -233,6 +233,15 @@ const Gallery = () => {
                     loading="lazy"
                     decoding="async"
                   />
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <img
+                      src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760962192/WhatsApp_Image_2025-10-17_at_07.25.35_jynxa8.jpg"
+                      alt="Solarquench watermark logo"
+                      className="h-16 w-auto opacity-35 drop-shadow-lg"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
                 <CardContent className="p-6 space-y-3 text-left">
                   {project.showBadge !== false && (
@@ -253,13 +262,24 @@ const Gallery = () => {
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-3xl max-h-[90vh] border bg-background p-0 shadow-2xl">
           {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Project detail"
-              className="h-auto max-h-[80vh] w-full rounded-xl object-contain"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="relative">
+              <img
+                src={selectedImage}
+                alt="Project detail"
+                className="h-auto max-h-[80vh] w-full rounded-xl object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <img
+                  src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760962192/WhatsApp_Image_2025-10-17_at_07.25.35_jynxa8.jpg"
+                  alt="Solarquench watermark logo"
+                  className="h-28 w-auto opacity-35 drop-shadow-2xl"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           )}
         </DialogContent>
       </Dialog>
