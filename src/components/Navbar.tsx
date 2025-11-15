@@ -25,19 +25,18 @@ const Navbar = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const iconColor = scrolled ? "text-foreground" : "text-white";
+  const navBackground = scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white/85 backdrop-blur-sm shadow";
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-white/20 backdrop-blur-sm"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${navBackground}`}
+      style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
               <img 
                 src="https://res.cloudinary.com/dnnwvmh3n/image/upload/v1760962192/WhatsApp_Image_2025-10-17_at_07.25.35_jynxa8.jpg" 
@@ -48,7 +47,7 @@ const Navbar = () => {
                 fetchpriority="low"
               />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-2xl font-bold leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               SOLARQUENCH
             </span>
           </Link>
@@ -84,9 +83,9 @@ const Navbar = () => {
             className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className={`w-6 h-6 ${iconColor}`} />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className={`w-6 h-6 ${iconColor}`} />
             )}
           </button>
         </div>
