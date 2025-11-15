@@ -79,11 +79,11 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <Card 
                 key={index}
-                className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg group premium-glow"
+                className="h-full border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg group premium-glow"
                 data-scroll
                 data-scroll-speed={0.3 + (index % 2) * 0.2}
               >
-                <CardContent className="p-6 text-center">
+                <CardContent className="flex h-full flex-col p-6 text-center">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg mx-auto">
                     <info.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
@@ -122,7 +122,7 @@ const Contact = () => {
                       );
                     })}
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="mt-auto text-xs text-muted-foreground">
                     {info.description}
                   </p>
                 </CardContent>

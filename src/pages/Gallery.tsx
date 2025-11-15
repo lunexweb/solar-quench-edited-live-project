@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -306,16 +307,16 @@ const Gallery = () => {
               consultation and join our growing list of satisfied customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/quote">
-                <button className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:opacity-90 transition-opacity font-medium shadow-lg">
+              <Link to="/quote" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:opacity-90 transition-opacity font-medium shadow-lg">
                   Get Free Quote
-                </button>
-              </a>
-              <a href="/contact">
-                <button className="px-8 py-4 border-2 border-border hover:border-primary/50 rounded-lg transition-colors font-medium">
+                </Button>
+              </Link>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full sm:w-auto border-2 border-border hover:border-primary/50 rounded-lg transition-colors font-medium">
                   Contact Us
-                </button>
-              </a>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ const Quote = () => {
       </section>
 
       <section className="py-16 md:py-20 bg-background" data-scroll-section>
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center space-y-6 mb-12">
             <h2 className="text-4xl font-bold">Request a Quote</h2>
             <p className="text-lg text-muted-foreground">

@@ -374,7 +374,7 @@ const Home = () => {
         </section>
 
         <section className="py-20 bg-muted/10">
-          <div className="container mx-auto px-4 max-w-4xl">
+          <div className="px-4 max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-10">
               <Badge variant="secondary" className="bg-primary/10 text-primary">
                 Frequently Asked Questions

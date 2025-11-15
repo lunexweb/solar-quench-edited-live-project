@@ -54,26 +54,26 @@ const Products = () => {
         </section>
 
         <section className="container mx-auto px-4 mt-16 space-y-10">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <h2 className="text-3xl font-semibold">Packages</h2>
             <a
               href="https://drive.google.com/uc?export=download&id=12oPT2OhgstRwYuBC54r0Mbf6hV3gkB_h"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex"
+              className="flex w-full lg:w-auto"
             >
-              <Button variant="outline" className="border-primary text-primary">
+              <Button variant="outline" className="border-primary text-primary w-full lg:w-auto self-start lg:self-auto">
                 Download our Profile
               </Button>
             </a>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {residentialPackages.map((pkg, index) => (
               <Card
                 key={pkg.title}
                 className={`relative border-none shadow-xl ${
                   index === 1 ? "bg-gradient-to-b from-orange-50 to-white" : "bg-white"
-                }`}
+                } flex h-full flex-col`}
               >
                 <CardContent className="p-8 flex h-full flex-col">
                   <div className="flex justify-center">
@@ -84,7 +84,7 @@ const Products = () => {
                     <p className="text-muted-foreground">{pkg.subtitle}</p>
                   </div>
                   <p className="text-3xl font-bold text-orange-500 text-center mt-4">{pkg.price}</p>
-                  <ul className="mt-6 space-y-3 text-sm text-slate-800 flex-1">
+                  <ul className="mt-6 space-y-3 text-sm text-slate-800 flex-1 min-h-[11rem]">
                     {pkg.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-orange-500" />
